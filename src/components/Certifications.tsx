@@ -1,10 +1,12 @@
 import { useEffect, useRef } from 'react';
+import { Tilt } from './Tilt';
 import FlipCard from './ui/FlipCard';
 import '../styles/FlipCard.css';
 
 const Certifications = () => {
   const certificationsRef = useRef<HTMLDivElement>(null);
   const achievementsRef = useRef<HTMLDivElement>(null);
+  const publicationsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -12,10 +14,16 @@ const Certifications = () => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('animate');
+            
+            // Stagger animation for children if they are grid cards
+            const cards = entry.target.querySelectorAll('.flip-card, .publication-card');
+            cards.forEach((card, index) => {
+              (card as HTMLElement).style.animationDelay = `${index * 0.15}s`;
+            });
           }
         });
       },
-      { threshold: 0.2 }
+      { threshold: 0.15 }
     );
 
     if (certificationsRef.current) {
@@ -26,12 +34,19 @@ const Certifications = () => {
       observer.observe(achievementsRef.current);
     }
 
+    if (publicationsRef.current) {
+      observer.observe(publicationsRef.current);
+    }
+
     return () => {
       if (certificationsRef.current) {
         observer.unobserve(certificationsRef.current);
       }
       if (achievementsRef.current) {
         observer.unobserve(achievementsRef.current);
+      }
+      if (publicationsRef.current) {
+        observer.unobserve(publicationsRef.current);
       }
     };
   }, []);
@@ -84,14 +99,25 @@ const Certifications = () => {
       icon: "🏅",
       image: "/certificates/III Year Participants Certificates (dragged) 3.pdf",
       link: "/certificates/III Year Participants Certificates (dragged) 3.pdf"
+    }
+  ];
+
+  const publications = [
+    {
+      title: "RBI-LSTM Based CNN Model for Speech Emotion Recognition",
+      venue: "IEEE 12th International Conference on Reliability, Infocom Technologies and Optimization (ICRITO 2025)",
+      date: "September 18-19, 2025",
+      status: "Published & Presented",
+      icon: "🎙️",
+      description: "Proposed a residual hybrid deep learning network (Res-LSTM CNN) to classify human emotional states from speech. Leveraged Librosa for acoustic feature extraction (MFCCs, Chroma, Tonnetz, Spectral Contrast). Demonstrated robust convergence and high classification accuracy on noisy speech signals."
     },
     {
-      title: "College ID Certificate",
-      issuer: "Vardhaman College",
-      date: "2022",
-      icon: "🆔",
-      image: "/certificates/22881A66F4.pdf",
-      link: "/certificates/22881A66F4.pdf"
+      title: "Interpretable Deep Learning Framework for EEG-Based Language Decoding",
+      venue: "Target: IEEE / Springer Journals & Conferences",
+      date: "Advanced Preparation",
+      status: "Under Review / Advanced Preparation",
+      icon: "🧠",
+      description: "Designed a spatial-temporal neural network combining CNNs, BiLSTMs, and self-attention mechanisms to decode natural language queries from raw EEG signals. Integrated Explainable AI (XAI) feature maps to visualize brainwave channel contributions, ensuring model transparency."
     }
   ];
 
@@ -122,10 +148,26 @@ const Certifications = () => {
   return (
     <section id="certifications" className="section certifications">
       <div className="container">
-        <h2 className="section-title">Certifications & Achievements</h2>
-        <p className="section-subtitle">Recognition of my skills and accomplishments</p>
+        <h2 className="section-title">Publications & Achievements</h2>
+        <p className="section-subtitle">Recognition of my academic research, certifications, and achievements</p>
         
-        <h3 className="section-subtitle">Professional Certifications</h3>
+        <h3 className="section-subtitle" style={{ marginTop: '2rem', marginBottom: '1.5rem' }}>Academic Publications</h3>
+        <div className="publications-grid" ref={publicationsRef}>
+          {publications.map((pub, index) => (
+            <Tilt key={index} className="publication-card">
+              <span className="publication-status">{pub.status}</span>
+              <div className="publication-header-flex">
+                <div className="publication-icon" style={{ fontSize: '2rem' }}>{pub.icon}</div>
+                <h4 className="publication-card-title">{pub.title}</h4>
+              </div>
+              <p className="publication-venue">Presented at: <strong>{pub.venue}</strong></p>
+              <p className="publication-description">{pub.description}</p>
+              <div className="publication-date">📅 {pub.date}</div>
+            </Tilt>
+          ))}
+        </div>
+
+        <h3 className="section-subtitle" style={{ marginTop: '3rem', marginBottom: '1.5rem' }}>Professional Certifications</h3>
         <div className="certifications-grid" ref={certificationsRef}>
           {certifications.map((cert, index) => (
             <FlipCard
@@ -174,7 +216,7 @@ const Certifications = () => {
           ))}
         </div>
         
-        <h3 className="section-subtitle">Achievements & Activities</h3>
+        <h3 className="section-subtitle" style={{ marginTop: '3rem', marginBottom: '1.5rem' }}>Achievements & Activities</h3>
         <div className="achievements-grid" ref={achievementsRef}>
           {achievements.map((achievement, index) => (
             <FlipCard

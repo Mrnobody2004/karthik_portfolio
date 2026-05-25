@@ -1,11 +1,11 @@
 import HeaderImage from '../header.jpeg';
+import { Tilt } from './Tilt';
 import '../styles/Header.css';
 import '../styles/SpaceyLogo.css';
 
 const Header = () => {
   return (
     <header className="hero" id="home">
-      <div className="spacey-logo"></div>
       <div className="hero-particles">
         {Array.from({ length: 50 }).map((_, index) => (
           <div 
@@ -24,7 +24,7 @@ const Header = () => {
         ))}
       </div>
       
-      <div className="hero-content">
+      <Tilt className="hero-content" maxRotate={6} perspective={1200}>
         <div className="hero-image">
           <img src={HeaderImage} alt="Karthik Reddy Padhira" loading="eager" />
         </div>
@@ -64,7 +64,7 @@ const Header = () => {
             </svg>
           </a>
         </div>
-      </div>
+      </Tilt>
       
       <a href="#about" className="scroll-indicator" aria-label="Scroll to About section">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

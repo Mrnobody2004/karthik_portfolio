@@ -81,7 +81,7 @@
   border-radius: 10px;
   padding: 2rem;
   box-shadow: var(--shadow-md);
-  transition: all 0.5s ease;
+  transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s ease, border-color 0.3s ease;
   opacity: 0;
   transform: translateY(30px) rotateX(10deg);
   position: relative;
@@ -106,7 +106,6 @@
 }
 
 .education-card:hover {
-  transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
   box-shadow: var(--shadow-lg);
   border-color: var(--primary-light);
 }
@@ -135,6 +134,7 @@
   margin-bottom: 1.5rem;
   color: var(--primary);
   transition: all 0.3s ease;
+  transform: translateZ(45px);
 }
 
 .education-card:hover .education-icon {
@@ -162,6 +162,7 @@
   display: inline-block;
   width: 100%;
   text-align: center;
+  transform: translateZ(30px);
 }
 
 .education-subtitle {
@@ -170,6 +171,7 @@
   color: var(--text-secondary);
   width: 100%;
   text-align: center;
+  transform: translateZ(25px);
 }
 
 /* Calendar icon with animation */
@@ -182,6 +184,7 @@
   justify-content: center;
   gap: 0.5rem;
   width: 100%;
+  transform: translateZ(20px);
 }
 
 .education-period::before {
@@ -212,6 +215,7 @@
   gap: 0.8rem;
   transition: all 0.3s ease;
   margin: 0 auto;
+  transform: translateZ(35px);
 }
 
 .dark-mode .education-cgpa {
@@ -220,7 +224,7 @@
 
 .education-card:hover .education-cgpa {
   background-color: var(--primary);
-  transform: scale(1.05);
+  transform: translateZ(35px) scale(1.05);
   box-shadow: 0 5px 15px rgba(0, 112, 243, 0.3);
 }
 

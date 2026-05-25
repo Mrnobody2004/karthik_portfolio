@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4a6cf7" />
+      <stop offset="100%" stop-color="#a29bfe" />
+    </linearGradient>
+  </defs>
+  <!-- Hexagonal frame -->
+  <polygon points="50,10 85,30 85,70 50,90 15,70 15,30" fill="none" stroke="url(#logo-grad)" stroke-width="4" stroke-linejoin="round" />
+  <!-- Connection lines -->
+  <line x1="50" y1="25" x2="30" y2="55" stroke="url(#logo-grad)" stroke-width="3" />
+  <line x1="50" y1="25" x2="70" y2="55" stroke="url(#logo-grad)" stroke-width="3" />
+  <line x1="30" y1="55" x2="50" y2="75" stroke="url(#logo-grad)" stroke-width="3" />
+  <line x1="70" y1="55" x2="50" y2="75" stroke="url(#logo-grad)" stroke-width="3" />
+  <line x1="30" y1="55" x2="70" y2="55" stroke="url(#logo-grad)" stroke-dasharray="3,3" stroke-width="2" />
+  <!-- Central core and peripheral nodes -->
+  <circle cx="50" cy="25" r="6" fill="#4a6cf7" />
+  <circle cx="30" cy="55" r="6" fill="#a29bfe" />
+  <circle cx="70" cy="55" r="6" fill="#a29bfe" />
+  <circle cx="50" cy="75" r="6" fill="#4a6cf7" />
+  <circle cx="50" cy="50" r="12" fill="url(#logo-grad)" />
+  <circle cx="50" cy="50" r="6" fill="#ffffff" />
+</svg>

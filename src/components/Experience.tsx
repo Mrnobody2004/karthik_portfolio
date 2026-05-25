@@ -50,15 +50,17 @@ const Experience = () => {
               </div>
               
               <p className="timeline-description">
-                Working as an ML Data Engineer Intern at Technizee Pvt Ltd, contributing to AI-powered virtual try-on systems. My role involves data preprocessing, model integration, and deploying machine learning solutions for traditional outfit visualization using Python and computer vision tools.
+                Contributing to a production-scale AI-powered Virtual Try-On (VITON) system. Designed data preprocessing pipelines using the Segment Anything Model (SAM) and human parsing networks for precise clothing isolation and multi-layer semantic masking. Developed pose-estimation pipelines for keypoint coordinate tracking to guide geometric warping transformations. Built scalable REST API services using FastAPI and Docker to containerize and serve deep learning inference models, optimizing GPU-based batch image processing pipelines.
               </p>
               
               <div className="tags">
                 <span className="tag">Python</span>
-                <span className="tag">Machine Learning</span>
+                <span className="tag">PyTorch</span>
                 <span className="tag">Computer Vision</span>
-                <span className="tag">Data Preprocessing</span>
-                <span className="tag">AI</span>
+                <span className="tag">FastAPI</span>
+                <span className="tag">Docker</span>
+                <span className="tag">Segment Anything (SAM)</span>
+                <span className="tag">GANs</span>
               </div>
             </div>
           </div>

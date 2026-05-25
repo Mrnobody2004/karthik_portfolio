@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { Tilt } from './Tilt';
 import '../styles/Education.css';
 
 const Education = () => {
@@ -64,7 +65,7 @@ const Education = () => {
         
         <div className="education-grid" ref={educationRef}>
           {educationData.map((item, index) => (
-            <div key={index} className="education-card">
+            <Tilt key={index} className="education-card">
               <div className="education-icon">{item.icon}</div>
               <h3 className="education-title">{item.degree}</h3>
               <h4 className="education-subtitle">{item.institution}</h4>
@@ -73,7 +74,7 @@ const Education = () => {
                 <span className="cgpa-label">CGPA</span>
                 <span className="cgpa-value">{item.cgpa}</span>
               </div>
-            </div>
+            </Tilt>
           ))}
         </div>
       </div>

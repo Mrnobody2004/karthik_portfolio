@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import Navbar from './components/Navbar';
 import Header from './components/Header';
 import About from './components/About';
 import Experience from './components/Experience';
@@ -64,7 +65,7 @@ function App() {
       {loading && <LoadingSpinner />}
       <div className="App" style={{ display: loading ? 'none' : 'flex', flexDirection: 'column', minHeight: '100vh' }}>
         <DarkModeToggle darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
-
+        <Navbar />
         <Header />
         <main>
           <About />
